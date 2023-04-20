@@ -13,31 +13,49 @@
 		<input type="hidden" id="hddId" name="hddId" value="<?php echo $information?$information[0]["id_catalogo_sistema"]:""; ?>"/>
 		
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-6">
 				<div class="form-group text-left">
 					<label class="control-label" for="nombre">Nombre: *</label>
 					<input type="text" id="nombre" name="nombre" class="form-control" value="<?php echo $information?$information[0]["nombre_sistema"]:""; ?>" placeholder="Nombre" required >
 				</div>
 			</div>
-			
 			<div class="col-sm-3">
 				<div class="form-group text-left">
 					<label class="control-label" for="sigla">Sigla: *</label>
 					<input type="text" id="sigla" name="sigla" class="form-control" value="<?php echo $information?$information[0]["sigla_sistema"]:""; ?>" placeholder="Sigla" required >
 				</div>
 			</div>
-
 			<div class="col-sm-3">
 				<div class="form-group text-left">
 					<label class="control-label" for="version_sistema">Versión: *</label>
 					<input type="text" id="version_sistema" name="version_sistema" class="form-control" value="<?php echo $information?$information[0]["version_sistema"]:""; ?>" placeholder="Versión" required >
 				</div>
 			</div>
-			
+		</div>
+
+		<div class="row">
 			<div class="col-sm-3">
 				<div class="form-group text-left">
 					<label class="control-label" for="fabricante">Fabricante: *</label>
                     <input type="text" id="fabricante" name="fabricante" class="form-control" value="<?php echo $information?$information[0]["fabricante"]:""; ?>" placeholder="Fabricante" required >
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="form-group text-left">
+					<label class="control-label" for="tipo_desarrollo">Tipo de Desarrollo: *</label>
+                    <input type="text" id="tipo_desarrollo" name="tipo_desarrollo" class="form-control" value="<?php echo $information?$information[0]["tipo_desarrollo"]:""; ?>" placeholder="Tipo de Desarrollo" required >
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="form-group text-left">
+					<label class="control-label" for="categoria">Categoria: *</label>
+                    <input type="text" id="categoria" name="categoria" class="form-control" value="<?php echo $information?$information[0]["categoria"]:""; ?>" placeholder="Categoria" required >
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="form-group text-left">
+					<label class="control-label" for="licenciamiento">Licenciamiento: *</label>
+                    <input type="text" id="licenciamiento" name="licenciamiento" class="form-control" value="<?php echo $information?$information[0]["licenciamiento"]:""; ?>" placeholder="Licenciamiento" required >
 				</div>
 			</div>
 		</div>
@@ -54,7 +72,6 @@
                     </div>
 				</div>
 			</div>
-
 			<div class="col-sm-4">
 				<div class="form-group text-left">
 					<label class="control-label" for="sistema_operativo">Sistema Operativo: *</label>
@@ -66,7 +83,6 @@
 					</select>
 				</div>
 			</div>
-
 			<div class="col-sm-4">
 				<div class="form-group text-left">
 					<label class="control-label" for="lenguaje_programacion">Lenguaje de Programación: *</label>
@@ -81,9 +97,9 @@
 		</div>
 
 		<div class="row">	
-			<div class="col-sm-5">
+			<div class="col-sm-4">
 				<div class="form-group text-left">
-					<label class="control-label" for="responsable_tecnico">Responsable técnico: *</label>
+					<label class="control-label" for="responsable_tecnico">Responsable Técnico: *</label>
 					<select name="responsable_tecnico" id="responsable_tecnico" class="form-control" >
 						<option value=''>Select...</option>
 						<?php for ($i = 0; $i < count($listaUsuarios); $i++) { ?>
@@ -92,14 +108,24 @@
 					</select>
 				</div>
 			</div>
-
-			<div class="col-sm-5">
+			<div class="col-sm-4">
 				<div class="form-group text-left">
-					<label class="control-label" for="responsable_funcional">Responsable funcional: *</label>
+					<label class="control-label" for="responsable_funcional">Responsable Funcional: *</label>
 					<select name="responsable_funcional" id="responsable_funcional" class="form-control" >
 						<option value=''>Select...</option>
 						<?php for ($i = 0; $i < count($listaUsuarios); $i++) { ?>
 							<option value="<?php echo $listaUsuarios[$i]["id_user"]; ?>" <?php if($information && $listaUsuarios[$i]["id_user"] == $information[0]['fk_id_responsable_funcional']) { echo "selected"; }  ?>><?php echo $listaUsuarios[$i]["first_name"] . ' ' . $listaUsuarios[$i]["last_name"]; ?></option>
+						<?php } ?>
+					</select>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group text-left">
+					<label class="control-label" for="dependencia_responsable">Dependencia Responsable: *</label>
+					<select name="dependencia_responsable" id="dependencia_responsable" class="form-control" >
+						<option value=''>Select...</option>
+						<?php for ($i = 0; $i < count($listaDependencias); $i++) { ?>
+							<option value="<?php echo $listaDependencias[$i]["id_dependencia"]; ?>" <?php if($information && $listaDependencias[$i]["id_dependencia"] == $information[0]['fk_id_dependencia']) { echo "selected"; }  ?>><?php echo $listaDependencias[$i]["dependencia"]; ?></option>
 						<?php } ?>
 					</select>
 				</div>
@@ -113,7 +139,6 @@
 					<textarea id="descripcion" name="descripcion" placeholder="Descripción" class="form-control" rows="2" ><?php echo $information?$information[0]["descripcion_sistema"]:""; ?></textarea>
 				</div>
 			</div>
-
 			<div class="col-sm-6">
 				<div class="form-group text-left">
 					<label class="control-label" for="observaciones">Observaciones: </label>

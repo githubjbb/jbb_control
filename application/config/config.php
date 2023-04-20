@@ -26,7 +26,7 @@ setlocale(LC_ALL, 'es_ES');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://jbb.gov.co/app/control/';
+$config['base_url'] = '';
 
 /*
 |--------------------------------------------------------------------------

@@ -19,7 +19,6 @@
 					<input type="text" id="url_aplicacion" name="url_aplicacion" class="form-control" value="<?php echo $information?$information[0]["url_aplicacion"]:""; ?>" placeholder="URL Apicación" required >
 				</div>
 			</div>
-			
 			<div class="col-sm-6">
 				<div class="form-group text-left">
 					<label class="control-label" for="servidor_aplicacion">Servidor aplicación: *</label>
@@ -35,11 +34,25 @@
 					<input type="text" id="servidor_base_datos" name="servidor_base_datos" class="form-control" value="<?php echo $information?$information[0]["servidor_base_datos"]:""; ?>" placeholder="Servidor Base de Datos" required >
 				</div>
 			</div>
-			
 			<div class="col-sm-6">
 				<div class="form-group text-left">
 					<label class="control-label" for="nombre_base_datos">Nombre base de datos: *</label>
                     <input type="text" id="nombre_base_datos" name="nombre_base_datos" class="form-control" value="<?php echo $information?$information[0]["nombre_base_datos"]:""; ?>" placeholder="Base de Datos" required >
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group text-left">
+					<label class="control-label" for="conexion_ldap">Conexión LDAP: *</label>
+					<input type="text" id="conexion_ldap" name="conexion_ldap" class="form-control" value="<?php echo $information?$information[0]["conexion_ldap"]:""; ?>" placeholder="Conexión LDAP" required >
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group text-left">
+					<label class="control-label" for="proveedor_soporte">Proveedor de Soporte: *</label>
+                    <input type="text" id="proveedor_soporte" name="proveedor_soporte" class="form-control" value="<?php echo $information?$information[0]["proveedor_soporte"]:""; ?>" placeholder="Proveedor de Soporte" required >
 				</div>
 			</div>
 		</div>

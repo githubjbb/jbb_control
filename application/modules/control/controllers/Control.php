@@ -19,7 +19,6 @@ class Control extends CI_Controller {
 			$arrParam = array();
 			$data['infoCatalogo'] = $this->general_model->get_catalogo($arrParam);
 			$data['pageHeaderTitle'] = "Catálogo De Sistemas De Información";
-
 			$data["view"] = 'catalogo';
 			$this->load->view("layout", $data);
 	}
@@ -31,27 +30,28 @@ class Control extends CI_Controller {
     public function cargarModalCatalogo() 
 	{
 			header("Content-Type: text/plain; charset=utf-8"); //Para evitar problemas de acentos
-			
 			$data['information'] = FALSE;
 			$data["idCatalogo"] = $this->input->post("idCatalogo");	
-
 			$arrParam = array(
 				"table" => "param_lenguaje_programacion",
 				"order" => "lenguaje_programacion",
 				"id" => 'x'
 			);
 			$data['listaLenguajeProgramacion'] = $this->general_model->get_basic_search($arrParam);
-
 			$arrParam = array(
 				"table" => "param_sistema_operativo",
 				"order" => "sistema_operativo",
 				"id" => 'x'
 			);
 			$data['listaSO'] = $this->general_model->get_basic_search($arrParam);
-
+			$arrParam = array(
+				"table" => "param_dependencias",
+				"order" => "id_dependencia",
+				"id" => 'x'
+			);
+			$data['listaDependencias'] = $this->general_model->get_basic_search($arrParam);
 			$arrParam = array("filtroStatus" => TRUE);
 			$data['listaUsuarios'] = $this->general_model->get_user($arrParam);
-
 			if ($data["idCatalogo"] != 'x') {
 				$arrParam = array(
 					"idCatalogo" => $data["idCatalogo"]
@@ -70,14 +70,11 @@ class Control extends CI_Controller {
 	{			
 			header('Content-Type: application/json');
 			$data = array();
-		
 			$idCatalogo = $this->input->post('hddId');
-			
 			$msj = "Se adicionó con exito el nuevo registro!";
 			if ($idCatalogo != '') {
 				$msj = "Se actualizó con exito el registro!";
 			}
-
 			if ($idCatalogo = $this->control_model->saveCatalogo()) {
 				$data["result"] = true;		
 				$this->session->set_flashdata('retornoExito', '<strong>Correcto!</strong> ' . $msj);
@@ -85,7 +82,6 @@ class Control extends CI_Controller {
 				$data["result"] = "error";
 				$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> Ask for help');
 			}
-
 			echo json_encode($data);
     }
 
@@ -105,9 +101,7 @@ class Control extends CI_Controller {
 				if(!$data['infoCatagolo']){
 					show_error('ERROR!!! - You are in the wrong place.');
 				}else{	
-					//$data['invoiceDetails'] = $this->general_model->get_invoice_details($arrParam);//invoice details
 					$data['pageHeaderTitle'] = "Catálogo De Sistemas De Información - Detalle";
-
 					$data["view"] = 'detalle_registro';
 					$this->load->view("layout", $data);
 				}
@@ -121,10 +115,8 @@ class Control extends CI_Controller {
     public function cargarModalDetalleCatalogo() 
 	{
 			header("Content-Type: text/plain; charset=utf-8"); //Para evitar problemas de acentos
-			
 			$data['information'] = FALSE;
 			$data["idCatalogo"] = $this->input->post("idCatalogo");	
-
 			if ($data["idCatalogo"] != 'x') {
 				$arrParam = array(
 					"idCatalogo" => $data["idCatalogo"]
@@ -143,11 +135,8 @@ class Control extends CI_Controller {
 	{			
 			header('Content-Type: application/json');
 			$data = array();
-						
 			$data["idRecord"] = $idCatalogo = $this->input->post('hddId');
-
 			$msj = "Se adicionó la información!";
-
 			if ($idCatalogo = $this->control_model->saveDetalleCatalogo()) {
 				$data["result"] = true;		
 				$this->session->set_flashdata('retornoExito', '<strong>Correcto!</strong> ' . $msj);
@@ -158,7 +147,43 @@ class Control extends CI_Controller {
 			echo json_encode($data);
     }
 
+    /**
+	 * activar catalogo
+     * @since 18/04/2023
+     * @author AOCUBILLOSA
+	 */
+	public function activar_catalogo()
+	{			
+			header('Content-Type: application/json');
+			$data = array();
+			$msj = "Se activó el catalogo";
+			if ($this->control_model->activarCatalogo()) {
+				$data["result"] = true;		
+				$this->session->set_flashdata('retornoExito', '<strong>Correcto!</strong> ' . $msj);
+			} else {
+				$data["result"] = "error";
+				$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> Ask for help');
+			}	
+			echo json_encode($data);
+    }
 
-
-	
+    /**
+	 * inactivar catalogo
+     * @since 18/04/2023
+     * @author AOCUBILLOSA
+	 */
+	public function inactivar_catalogo()
+	{			
+			header('Content-Type: application/json');
+			$data = array();
+			$msj = "Se inactivó el catalogo.";
+			if ($this->control_model->inactivarCatalogo()) {
+				$data["result"] = true;		
+				$this->session->set_flashdata('retornoExito', '<strong>Correcto!</strong> ' . $msj);
+			} else {
+				$data["result"] = "error";
+				$this->session->set_flashdata('retornoError', '<strong>Error!!!</strong> Ask for help');
+			}	
+			echo json_encode($data);
+    }
 }

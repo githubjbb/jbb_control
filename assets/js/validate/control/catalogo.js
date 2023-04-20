@@ -15,7 +15,11 @@ $(function () {
       lenguaje_programacion:      { required: true },
       descripcion:                { required: true },
       responsable_tecnico:        { required: true },
-      responsable_funcional:      { required: true }
+      responsable_funcional:      { required: true },
+      dependencia_responsable:    { required: true },
+      tipo_desarrollo:            { required: true },
+      categoria:                  { required: true },
+      licenciamiento:             { required: true },
 
     },
     errorElement: 'span',

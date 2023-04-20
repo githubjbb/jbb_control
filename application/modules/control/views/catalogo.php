@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?php echo base_url("assets/js/validate/control/activar_inactivar.js"); ?>"></script>
 <script>
 $(function(){ 
 	$(".btn-success").click(function () {	
@@ -49,9 +50,9 @@ $(function(){
 						<div class="btn-group btn-group-toggle">
 							<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal" id="x">
 									<span class="fa fa-plus" aria-hidden="true"></span> Adicionar Registro
-							</button>
+							</button> 
 
-							<a href="<?php echo base_url('/reportes/generarCatalogoXLS'); ?>" class="btn btn-danger"> <span class="fa fa-pink" aria-hidden="true"></span> Descargar Catálogo </a>
+							<a href="<?php echo base_url('/reportes/generarCatalogoXLS'); ?>" class="btn btn-info"> <span class="fa fa-pink" aria-hidden="true"></span> Descargar Catálogo </a>
 						</div>
 						<div class="card-tools">
 							<div class="input-group input-group-sm" style="width: 150px;">
@@ -71,17 +72,18 @@ $(function(){
 							echo '<div class="col-lg-12">
 									<p class="text-danger"><span class="fa fa-alert" aria-hidden="true"></span> No se encontraron registros.</p>
 								</div>';
-						}else{
+						} else {
 					?>
 						<table id="catalogo" class="table table-head-fixed table-striped table-hover">
 							<thead>
 								<tr>
-								<th class="text-center">#</th>
-								<th>Nombre</th>
-								<th class="text-center">Sigla</th>
-								<th>Responsable</th>
-								<th>Enlace Aplicación</th>
-								<th class="text-center">Enlaces</th>
+								<th class="text-center" style="width: 3%">#</th>
+								<th style="width: 20%">Nombre</th>
+								<th class="text-center" style="width: 5%">Sigla</th>
+								<th style="width: 35%">Responsable</th>
+								<th style="width: 20%">Enlace Aplicación</th>
+								<th class="text-center" style="width: 12%">Estado</th>
+								<th class="text-center" style="width: 5%">Enlaces</th>
 								</tr>
 							</thead>
 							<tbody>							
@@ -104,18 +106,28 @@ $(function(){
 									if($lista['observaciones']){
 										echo "<p class='text-danger'><b> " . $lista['observaciones'] . '</b></p>';
 									}
-									echo "</td>";									
+									echo "</td>";
 									echo "<td class='text-center'>";
-						?>
-			                      <div class="btn-group-vertical">
-									<button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modal" id="<?php echo $lista['id_catalogo_sistema']; ?>" >
-										Editar
-									</button>
-
-									<a href="<?php echo base_url('/control/detalles/' . $lista['id_catalogo_sistema']); ?>" class="btn btn-danger btn-xs"> Detalles </a>
-			                      </div>
-                        <?php
-                            		echo "</td>";
+									if($lista['estado_sistema'] == 1){
+							?>
+										<button type="button" class="btn btn-primary btn-xs" id="<?php echo $lista['id_catalogo_sistema']; ?>" >Activo</button>
+							<?php
+									} else {
+							?>
+										<button type="button" class="btn btn-danger btn-xs" id="<?php echo $lista['id_catalogo_sistema']; ?>" >Inactivo</button>
+							<?php
+										echo "<p>Fecha de Inactividad <b>" . $lista['fecha_inactivacion'] . "</b></p>";
+									}
+									echo "</td>";
+									echo "<td class='text-center'>";
+							?>
+			           	<div class="btn-group-vertical">
+										<button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modal" id="<?php echo $lista['id_catalogo_sistema']; ?>" style="color: white;" >
+										Editar</button><br>
+										<a href="<?php echo base_url('/control/detalles/' . $lista['id_catalogo_sistema']); ?>" class="btn btn-info btn-xs"> Detalles </a>
+			           	</div>
+              <?php
+                  echo "</td>";
 									echo "</tr>";
 							endforeach;
 							?>
@@ -133,7 +145,6 @@ $(function(){
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content" id="tablaDatos">
-
 		</div>
 	</div>
 </div>                       

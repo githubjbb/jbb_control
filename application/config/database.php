@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '10.0.0.12',
-	'username' => 'jbb_control',
-	'password' => 'Ol&yU2hQH^BP',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'jbb_control',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
@@ -97,10 +97,10 @@ $db['default'] = array(
 
 $db['intranets_sige'] = array(
 	'dsn'	=> '',
-	'hostname' => '10.0.0.12',
-	'username' => 'intranets',
-	'password' => 'Intranetsjbb2016-',
-	'database' => 'intranets',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'jbb_intranets',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

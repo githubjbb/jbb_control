@@ -1,0 +1,12 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2023-04-17 22:52:33 --> 404 Page Not Found: ../modules/control/controllers/Control/index
+ERROR - 2023-04-17 23:35:39 --> Severity: Notice --> Undefined index: dependencia C:\xampp\htdocs\jbb_control\application\modules\control\views\detalle_registro.php 78
+ERROR - 2023-04-17 23:44:31 --> 404 Page Not Found: ../modules/settings/controllers/Settings/job
+ERROR - 2023-04-17 23:44:48 --> Severity: error --> Exception: Call to undefined method General_model::get_param_clients() C:\xampp\htdocs\jbb_control\application\modules\settings\controllers\Settings.php 225
+ERROR - 2023-04-17 23:46:22 --> Severity: error --> Exception: Call to undefined method General_model::get_taxes() C:\xampp\htdocs\jbb_control\application\modules\settings\controllers\Settings.php 358
+ERROR - 2023-04-17 23:46:30 --> Severity: error --> Exception: Call to undefined method General_model::get_param_clients() C:\xampp\htdocs\jbb_control\application\modules\settings\controllers\Settings.php 225
+ERROR - 2023-04-17 23:46:33 --> 404 Page Not Found: ../modules/settings/controllers/Settings/job
+ERROR - 2023-04-17 23:47:12 --> 404 Page Not Found: ../modules/dashboard/controllers/Dashboard/change_company
+ERROR - 2023-04-17 23:52:47 --> Query error: Unknown column 'estado' in 'field list' - Invalid query: INSERT INTO `catalogo_sistemas_informacion` (`nombre_sistema`, `sigla_sistema`, `descripcion_sistema`, `version_sistema`, `fecha_creacion`, `fecha_vencimiento_soporte`, `fk_id_responsable_tecnico`, `fk_id_responsable_funcional`, `fk_id_dependencia`, `fk_id_sistema_operativo`, `fk_id_leguaje_programacion`, `observaciones`, `fabricante`, `tipo_desarrollo`, `categoria`, `licenciamiento`, `estado`) VALUES ('Pruebas', 'PRUEBAS', 'Pruebas', '1', '2023-04-17 23:52:47', '2023-12-31', '1', '1', '6', '1', '1', '', 'JBB', 'JBB', 'N/A', 'N/A', 1)
+ERROR - 2023-04-17 23:53:02 --> Query error: Unknown column 'estado' in 'field list' - Invalid query: INSERT INTO `catalogo_sistemas_informacion` (`nombre_sistema`, `sigla_sistema`, `descripcion_sistema`, `version_sistema`, `fecha_creacion`, `fecha_vencimiento_soporte`, `fk_id_responsable_tecnico`, `fk_id_responsable_funcional`, `fk_id_dependencia`, `fk_id_sistema_operativo`, `fk_id_leguaje_programacion`, `observaciones`, `fabricante`, `tipo_desarrollo`, `categoria`, `licenciamiento`, `estado`) VALUES ('Pruebas', 'PRUEBAS', 'Pruebas', '1', '2023-04-17 23:53:02', '2023-12-31', '1', '1', '6', '1', '1', '', 'JBB', 'JBB', 'N/A', 'N/A', 1)

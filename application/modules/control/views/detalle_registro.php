@@ -63,16 +63,19 @@ $(function(){
                 <strong>Versión: </strong><?php echo $infoCatagolo[0]['version_sistema']; ?><br>
                 <strong>Sigla: </strong><?php echo $infoCatagolo[0]['sigla_sistema']; ?><br>
                 <strong>Fabricante: </strong><?php echo $infoCatagolo[0]['fabricante']; ?><br>
+                <strong>Tipo de Desarrollo: </strong><?php echo $infoCatagolo[0]['tipo_desarrollo']; ?><br>
                 <strong>Sistema Operativo: </strong><?php echo $infoCatagolo[0]['sistema_operativo']; ?><br>
                 <strong>Lenguaje de Programación: </strong><?php echo $infoCatagolo[0]['lenguaje_programacion']; ?><br>
               </address>
             </div>
                 <!-- /.col -->
             <div class="col-sm-4 invoice-col">
-              Responsable técnico <br>
+              Responsable Técnico <br>
                 <strong><?php echo $infoCatagolo[0]['tecnico']; ?></strong><br>
-              Responsable funcional:<br>
+              Responsable Funcional:<br>
               <strong><?php echo $infoCatagolo[0]['funcional']; ?></strong><br>
+              Dependencia Responsable <br>
+                <strong><?php echo $infoCatagolo[0]['dependencia']; ?></strong><br>
             </div>
             <div class="col-sm-4 invoice-col">
               <b># <?php echo $infoCatagolo[0]['id_catalogo_sistema']; ?></b><br>
@@ -91,6 +94,8 @@ $(function(){
                   <th class='text-center'>Servidor Aplicación</th>
                   <th class='text-center'>Servidor Base de Datos</th>
                   <th>Nombre Base de Datos</th>
+                  <th class='text-center'>Conexión LDAP</th>
+                  <th class='text-center'>Proveedor de Soporte</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -100,6 +105,8 @@ $(function(){
                   echo "<td class='text-center'>" . $infoCatagolo[0]['servidor_aplicacion'] . "</td>";
                   echo "<td class='text-center'>" . $infoCatagolo[0]['servidor_base_datos'] . "</td>";
                   echo "<td>" . $infoCatagolo[0]['nombre_base_datos'] . "</td>";
+                  echo "<td class='text-center'>" . $infoCatagolo[0]['conexion_ldap'] . "</td>";
+                  echo "<td class='text-center'>" . $infoCatagolo[0]['proveedor_soporte'] . "</td>";
                   echo "</tr>";
                 ?>
               </tbody>

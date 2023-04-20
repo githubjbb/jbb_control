@@ -9,11 +9,12 @@ $(function () {
 
   $('#form').validate({
     rules: {
-      url_aplicacion:                     { required: true, maxlength:100 },
-      servidor_aplicacion:                { required: true, maxlength:20 },
-      servidor_base_datos:                { required: true, maxlength:20 },
-      nombre_base_datos:                  { required: true, maxlength:40 }            
-
+      url_aplicacion:          { required: true, maxlength:100 },
+      servidor_aplicacion:     { required: true, maxlength:20 },
+      servidor_base_datos:     { required: true, maxlength:20 },
+      nombre_base_datos:       { required: true, maxlength:40 },
+      conexion_ldap:           { required: true, maxlength:20 },
+      proveedor_soporte:       { required: true, maxlength:20 }
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {
