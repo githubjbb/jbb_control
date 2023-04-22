@@ -66,15 +66,17 @@ $(function(){
                 <strong>Tipo de Desarrollo: </strong><?php echo $infoCatagolo[0]['tipo_desarrollo']; ?><br>
                 <strong>Sistema Operativo: </strong><?php echo $infoCatagolo[0]['sistema_operativo']; ?><br>
                 <strong>Lenguaje de Programación: </strong><?php echo $infoCatagolo[0]['lenguaje_programacion']; ?><br>
+                <strong>Categoria: </strong><?php echo $infoCatagolo[0]['categoria']; ?><br>
+                <strong>Licenciamiento: </strong><?php echo $infoCatagolo[0]['licenciamiento']; ?><br>
               </address>
             </div>
                 <!-- /.col -->
             <div class="col-sm-4 invoice-col">
-              Responsable Técnico <br>
+              Responsable Técnico: <br>
                 <strong><?php echo $infoCatagolo[0]['tecnico']; ?></strong><br>
               Responsable Funcional:<br>
               <strong><?php echo $infoCatagolo[0]['funcional']; ?></strong><br>
-              Dependencia Responsable <br>
+              Dependencia Responsable: <br>
                 <strong><?php echo $infoCatagolo[0]['dependencia']; ?></strong><br>
             </div>
             <div class="col-sm-4 invoice-col">
