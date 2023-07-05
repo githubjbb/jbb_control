@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SISTEMAScontrol.</title>
+        <link rel="icon" type="image/png" href="<?php echo base_url("images/favicon.ico"); ?>" />
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,7 +23,7 @@
                     <a href="../../index2.html" class="h1"><b>SISTEMAS</b>control.</a>
                 </div>
                 <div class="card-body">
-                    <p class="login-box-msg">Autenticación</p>
+                    <p class="login-box-msg">Autenticación<br>Usuario y Contraseña de Red</p>
                     <?php if(isset($msj)){?>
                             <div class="alert alert-danger"><span class="glyphicon glyphicon-remove">&nbsp;</span>
                                 <?php echo $msj;//mensaje de error ?>
