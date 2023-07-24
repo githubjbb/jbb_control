@@ -81,7 +81,7 @@ $(function(){
 								<th class="text-center">Fecha Fin Contrato</th>
 								<th class="text-center">Estado</th>
 								<th class="text-center">Editar</th>
-								<th class="text-center">Contraseña</th>
+								<!--<th class="text-center">Contraseña</th>-->
 								</tr>
 							</thead>
 							<tbody>							
@@ -112,11 +112,11 @@ $(function(){
 									</button>
 						<?php
 									echo "</td>";
-									echo "<td class='text-center'>";
+									//echo "<td class='text-center'>";
 							?>
-									<a href="<?php echo base_url("users/email/" . $lista['id']); ?>" class="btn btn-default btn-xs">Reiniciar Contraseña <span class="fa fa-lock" aria-hidden="true"></a> 
+									<!--<a href="<?php echo base_url("users/email/" . $lista['id']); ?>" class="btn btn-default btn-xs">Reiniciar Contraseña <span class="fa fa-lock" aria-hidden="true"></a>-->
 							<?php
-									echo "</td>";									
+									//echo "</td>";									
 									echo "</tr>";
 							endforeach;
 							?>
