@@ -25,7 +25,7 @@ class Login extends CI_Controller {
 	        $passwd = $this->input->post("inputPassword");
 
 	        $ldapuser = $login;
-	        $ldappass = $passwd;
+	        $ldappass = ldap_escape($passwd, null, LDAP_ESCAPE_FILTER);
 	        
 	        $ds = ldap_connect("192.168.0.44", "389") or die("No es posible conectar con el directorio activo.");  // Servidor LDAP!
 	        if (!$ds) {
@@ -34,7 +34,9 @@ class Login extends CI_Controller {
 	        } else {
 	            $ldapdominio = "jardin";
 	            $ldapusercn = $ldapdominio . "\\" . $ldapuser;
-	            $binddn = "ou=jardin, dc=jardin, dc=local";
+	            $binddn = "dc=jardin, dc=local";
+	            ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3);
+            	ldap_set_option($ds, LDAP_OPT_REFERRALS, 0);
 	            $r = @ldap_bind($ds, $ldapusercn, $ldappass);
 	            if (!$r) {
 	                @ldap_close($ds);
@@ -81,6 +83,7 @@ class Login extends CI_Controller {
 								"lastname" => $user["lastname"],
 								"name" => $user["firstname"] . ' ' . $user["lastname"],
 								"logUser" => $user["logUser"],
+								"password" => $passwd,
 								"status" => $user["status"],
 								"photo" => $user["photo"]
 							);
