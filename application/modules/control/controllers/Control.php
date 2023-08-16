@@ -15,9 +15,16 @@ class Control extends CI_Controller {
      * @author BMOTTAG
 	 */
 	public function catalogo()
-	{			
+	{
 			$arrParam = array();
-			$data['infoCatalogo'] = $this->general_model->get_catalogo($arrParam);
+			$idRole = $this->session->userdata('idRole');
+			if ($idRole != 2) {
+				$data['infoCatalogo'] = $this->general_model->get_catalogo($arrParam);
+			} else {
+				$idUser = $this->session->userdata('idUser');
+				$arrParam = array('idUser' => $idUser);
+				$data['infoCatalogo'] = $this->general_model->get_catalogo_by_adminCatalogo($arrParam);
+			}
 			$data['pageHeaderTitle'] = "Catálogo De Sistemas De Información";
 			$data["view"] = 'catalogo';
 			$this->load->view("layout", $data);
